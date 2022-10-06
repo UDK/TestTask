@@ -36,10 +36,6 @@ export const useTodoStore = defineStore({
             });
         },
         async update(data: Todo) {
-            console.log(data);
-
-            console.log(convertToUpdateTodo(data));
-
             const response = await fetch("http://localhost:8008/api/Task", {
                 method: 'PUT',
                 body: JSON.stringify(convertToUpdateTodo(data)),

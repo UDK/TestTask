@@ -5,9 +5,13 @@ import Todo from "@/views/Todo.vue";
 </script>
 
 <template>
-  <Suspense>
-    <Todo></Todo>
-  </Suspense>
+  <div class="grid">
+    <Suspense>
+      <div class="col-8 col-offset-2">
+        <Todo></Todo>
+      </div>
+    </Suspense>
+  </div>
 </template>
 
 <style scoped>
