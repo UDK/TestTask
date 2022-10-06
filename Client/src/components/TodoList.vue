@@ -132,18 +132,12 @@ const removeItem = async (key: string) => {
   }
   let node = nodes.value[+keysArray[0]];
   keysArray.slice(1).forEach((i, ind, array) => {
-    if (ind === array.length - 1) {
-      console.log(i);
-      
-      console.log(node.children);
-      
+    if (ind === array.length - 1) {      
       node.children = node.children.splice(+i, +i + 1);
     }
     else
       node = node.children[+i];
-  })
-  console.log(node);
-  
+  })  
   store.update(nodes.value[+keysArray[0]]);
 }
 const isCheckNode = (key: string) => {
