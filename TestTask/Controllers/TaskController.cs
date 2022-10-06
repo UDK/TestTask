@@ -34,11 +34,12 @@ public class TaskController : ControllerBase
     }
 
     [HttpPost("all")]
-    public async Task<IActionResult> GetList(int offset, int limit)
+    public async Task<IActionResult> GetList(GetListDTO param)
     {
         var items = await _mediator.Send(new GetAllTasksQuery()
         {
-
+            Offset = param.Offset,
+            Limit = param.Limit
         });
         return Ok(items);
     }

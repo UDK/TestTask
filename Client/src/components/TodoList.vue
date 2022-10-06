@@ -64,7 +64,7 @@ const selectionKeys = ref();
 const editKey = ref("");
 const toast = useToast();
 const store = useTodoStore();
-await store.load({ offset: 0, limit: 10 });
+await store.load({ offset: 0, limit: 999 });
 loading.value = false;
 nodes.value = store.getTodos;
 
