@@ -125,17 +125,25 @@ const removeItem = async (key: string) => {
   const keysArray = key.split('-');
   if (keysArray.length == 1) {
     const rootElement = nodes.value[+keysArray[0]]._id;
+    nodes.value = nodes.value.filter(q => q._id != rootElement)
+    
     if (rootElement)
       store.delete(rootElement)
   }
   let node = nodes.value[+keysArray[0]];
   keysArray.slice(1).forEach((i, ind, array) => {
     if (ind === array.length - 1) {
-      node.children = node.children.slice(+i, +i + 1);
+      console.log(i);
+      
+      console.log(node.children);
+      
+      node.children = node.children.splice(+i, +i + 1);
     }
     else
       node = node.children[+i];
   })
+  console.log(node);
+  
   store.update(nodes.value[+keysArray[0]]);
 }
 const isCheckNode = (key: string) => {
