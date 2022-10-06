@@ -18,7 +18,7 @@ services:
     image: mongo
     ports:
       - '27017:27017'
-
-volumes:
-  mongodb_data:
-    external: true
+    environment:
+      MONGO_INITDB_DATABASE: tasks
+    volumes:
+      - ./docker-entrypoint-initdb/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
