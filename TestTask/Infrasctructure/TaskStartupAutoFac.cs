@@ -1,8 +1,9 @@
 ﻿using Autofac;
+using MongoDB.Bson;
 using TestTask.DB.Domain;
 using TestTask.DB.Repositories;
 using TestTask.Infrasctructure.Configuration;
-using Task = TestTask.DB.Domain.Task;
+using TaskDomain = TestTask.DB.Domain.Task;
 
 namespace TestTask.Infrasctructure
 {
@@ -18,8 +19,6 @@ namespace TestTask.Infrasctructure
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterGeneric(typeof(Repository<,>)).As(typeof(IRepository<,>)).InstancePerLifetimeScope();
-            //.WithParameter("settings", builder.Configuration.GetSection("ConfigureSettings").Get<ConfigureSettings>());
-            //builder.RegisterType<Repository<Task, int>>().As<IRepository<Task, int>>();
             builder.Register(q => _configure).As<ConfigureSettings>().SingleInstance();
         }
     }

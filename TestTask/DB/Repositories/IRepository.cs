@@ -6,7 +6,7 @@ namespace TestTask.DB.Repositories
     {
         public Task<List<T>> GetList(Expression<Func<T, bool>> predicate, int offset, int limit);
         public Task CreateAsync(T item);
-        public Task UpdateAsync(ID id, T updatedBook);
+        public Task UpdateAsync(T updatedBook);
         public Task RemoveAsync(IEnumerable<ID> ids);
     }
 }

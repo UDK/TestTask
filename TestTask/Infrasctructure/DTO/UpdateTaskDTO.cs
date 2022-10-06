@@ -2,17 +2,14 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System.Text.Json.Serialization;
 
-namespace TestTask.DB.Domain
+namespace TestTask.Infrasctructure.DTO
 {
-    public class Task : IEntity<string>
+    public class UpdateTaskDTO
     {
-        [BsonId]
-        [BsonElement("_id")]
         [JsonPropertyName("_id")]
-        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string Text { get; set; }
         [JsonPropertyName("children")]
-        public List<Task> SubTasks {get;set;}
+        public List<UpdateTaskDTO> SubTasks { get; set; }
     }
 }

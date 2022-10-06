@@ -1,10 +1,8 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using TestTask.DB.Repositories;
 using MediatR.Extensions.Autofac.DependencyInjection;
 using TestTask.Infrasctructure.Configuration;
 using TestTask.Infrasctructure;
-using TestTask.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +28,12 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseCors(q =>
+    {
+        q.AllowAnyHeader()
+        .AllowAnyOrigin()
+        .AllowAnyMethod();
+    });
 }
 
 app.MapControllers();

@@ -22,6 +22,9 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "environmentVariables": {
+        "Environment": "Development"
+      },
       "publishAllPorts": true
     }
   },

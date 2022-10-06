@@ -11,7 +11,5 @@ namespace TestTask.Controllers
         {
             _mediator = mediator;
         }
-
-        //protected ISender Mediator => _mediator ??= HttpContext.RequestServices.GetService<ISender>();
     }
 }
